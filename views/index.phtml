@@ -1,0 +1,14 @@
+<div class="repas_container">
+    <?php foreach($meals as $meal) : ?>
+    <div class="repas">
+        <div class="img_container">
+        <img src="views/images/meals/<?= $meal['image'] ?>"></img>
+        </div>
+        <div class="details_repas">
+        <h3><?= $meal['titre'] ?></h3>
+        <small><?= $meal['details'] ?></small>
+        <p>Prix: <?= $meal['prix_unité'] ?>€</p>
+        </div>
+    </div>
+    <?php endforeach; ?> 
+</div>

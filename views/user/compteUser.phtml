@@ -1,0 +1,14 @@
+<div class="changeProfile-info">
+    <h2>Informations du compte</h2>
+    <ul>
+        <li><strong>Nom :</strong> <?= $user['nom'] ?></li>
+        <li><strong>Prénom :</strong> <?= $user['prenom'] ?></li>
+        <li><strong>Date de naissance :</strong> <?= $user['anniversaire'] ?></li>
+        <li><strong>Adresse :</strong> <?= $user['adresse'] ?></li>
+        <li><strong>Code postal :</strong> <?= $user['code_postal'] ?></li>
+        <li><strong>Pays :</strong> <?= $user['pays'] ?></li>
+        <li><strong>Email :</strong> <?= $user['mail'] ?></li>
+        <li><strong>Télephone :</strong> <?= $user['tel'] ?></li>
+        <button><a href="index.php?action=modifyProfile&id=<?= $user['id_client'] ?>">Modifier le profil</a></button>
+    </ul>
+</div>

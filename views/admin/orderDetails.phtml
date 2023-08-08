@@ -1,0 +1,31 @@
+<h3>Commande n°<?= $orderdetails[0]['id_commande'] ?></h3>
+
+<p><?= $orderdetails[0]['nom'] ?> <?= $orderdetails[0]['prenom'] ?></p>
+<p><?= $orderdetails[0]['mail'] ?></p>
+<p><?= $orderdetails[0]['adresse'] ?></p>
+<p><?= $orderdetails[0]['code_postal'] ?></p>
+<p><?= $orderdetails[0]['pays'] ?></p>
+<p><?= $orderdetails[0]['tel'] ?></p>
+
+<table class="standard-table">
+            <thead>
+                <tr>
+                    <th>ID produit</th>
+                    <th>Nom du produit</th>
+                    <th>Quantité</th>
+                    <th>Prix à l'unité</th>
+                    <th>Prix total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($orderdetails as $orderdetail): ?>
+                <tr>
+                    <td><?= $orderdetail['id_produit'] ?></a></td>
+                    <td><?= $orderdetail['titre'] ?></td>
+                    <td><?= $orderdetail['quantite'] ?></td>
+                    <td><?= $orderdetail['sous_total'] ?>€</td>
+                    <td><?= $orderdetail['TotalPanier'] ?>€</td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+</table>

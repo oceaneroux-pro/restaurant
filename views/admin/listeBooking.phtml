@@ -1,0 +1,22 @@
+<table class="standard-table">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Nombre de couverts</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($bookings as $booking): ?>
+                <tr>
+                    <td><?= $booking['prenom'] ?> <?= $booking['nom'] ?></td>
+                    <td><?= $booking['date'] ?></td>
+                    <td><?= $booking['heure'] ?></td>
+                    <td><?= $booking['nb_couverts'] ?></td>
+                    <td><a href="index.php?action=deleteBooking&id=<?= $booking['id_reservation'] ?>">supprimer</a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+</table>

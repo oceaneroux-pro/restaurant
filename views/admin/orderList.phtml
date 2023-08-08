@@ -1,0 +1,23 @@
+<table class="standard-table">
+            <thead>
+                <tr>
+                    <th>Numéro de commande</th>
+                    <th>Nom du client</th>
+                    <th>Date</th>
+                    <th>Prix total</th>
+                    <th>Supprimer</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($orders as $order): ?>
+                <tr>
+                    <td><a href="index.php?action=orderDetails&id=<?= $order['id_commande'] ?>"><?= $order['id_commande'] ?></a></td>
+                    <td><?= $order['prenom'] ?> <?= $order['nom'] ?></td>
+                    <td><?= $order['date_commande'] ?></td>
+                    <td><?= $order['total'] ?>€</td>
+                    <td><a href="index.php?action=deleteOrder&id=<?= $order['id_commande'] ?>">supprimer</a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+</table>

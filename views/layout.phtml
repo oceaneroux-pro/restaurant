@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3WA Restaurant</title>
+
+    <link rel="stylesheet" href="views/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Chakra+Petch&display=swap" rel="stylesheet">
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="views/css/3wa-resto.css">
+    <link rel="stylesheet" href="views/css/ui-button.css">
+    <link rel="stylesheet" href="views/css/ui-form.css">
+    <link rel="stylesheet" href="views/css/ui-table.css">
+    <link rel="stylesheet" href="views/css/style.css" type="text/css" />
+
+    <!-- Librairie jQuery -->
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- JavaScript de l'application -->
+    
+    <!--<script src="www/js/valid_action_commande.js"></script>-->
+    <!--<script src="www/js/admin.js"></script>-->
+
+</head>
+<body>
+
+    <!-- En-tête commune -->
+    <header>
+        <h1>
+            <a href="index.php">
+                Restaurant - Made In America !
+            </a>
+        </h1>
+    </header>
+    <nav class="user-interface">
+        <ul class="link-list">
+            <?php if($this -> is_connect()) : ?>
+                <li>
+                    <a class="button button-primary" href="index.php?action=order">Commander</a>
+                </li>
+                <li>
+                    <a class="button button-primary" href="index.php?action=booking">Réservation</a>
+                </li>
+                 <li class="layout-right">
+                    <span class="prenom_client">Bonjour <span class="prenom"><?php echo $_SESSION['client']['prenom']?></span></span>
+                    <a class="button button-primary" href="index.php?action=deconnexion">Déconnexion</a>
+                </li>
+                <li>
+                    <a class="button button-primary" href="index.php?action=compteUser">Voir mon profil</a>
+                </li>
+            <?php elseif (!$this -> is_connect() && !$this -> isAdmin()): ?>    
+                <li>
+                  <a class="button button-primary" href="index.php?action=createAccount">Créer un compte</a>
+                </li>
+                <li class="layout-right">
+                  <a class="button button-primary" href="index.php?action=connexion">Connexion</a>
+                </li>
+            <?php elseif($this -> isAdmin()) : ?>
+                 <li>
+                  <a class="button button-primary" href="index.php?action=admin">Tableau de Bord</a>
+                </li>
+                <li class="layout-right">
+                    <span class="prenom_client">Bonjour <span class="prenom"><?php echo $_SESSION['admin']['pseudo']?></span></span>
+                  <a class="button button-primary" href="index.php?action=deconnexionAdmin">Déconnexion</a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+    <main>
+        <?php if(isset($_GET['message'])) : ?>
+            <p><?= $_GET['message'] ?> </p>
+        <?php endif; ?>
+        
+        <?php if(isset($message)) : ?>
+            <p><?= $message ?> </p>
+        <?php endif; ?>
+        <?php require $template.".phtml" ?>
+    </main>
+    <!-- Pied de page commun -->
+    <footer class="footer">
+        <h4 class="acceptons">Nous acceptons</h4>
+        <ul class="link-list">
+            <li><img src="https://img.ltwebstatic.com/images3_pi/2021/03/09/161528368123dd7a35ad8708b0dfc74b3630526891.png" alt="Visa"></li>
+            <li><img src="https://img.ltwebstatic.com/images2_pi/2018/06/06/15282732803587566708.png" alt="MasterCard"></li>
+            <li><img src="https://img.ltwebstatic.com/images2_pi/2018/06/06/15282719811871317559.png" alt="PayPal"></li>
+        </ul>
+		<p><a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"><img alt="3W Academy" src="https://3wa.fr/wp-content/themes/3wa2015/img/logos/big.png"></a></p>
+		<p>Réalisé dans le cadre de ma formation à la <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/">3W Academy</a></p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

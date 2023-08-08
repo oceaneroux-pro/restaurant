@@ -1,0 +1,22 @@
+
+<h3>Réserver une table</h3>
+
+<form action="index.php?action=booking" method="post">
+    
+    <fieldset>
+        <legend>Informations</legend>
+        <!--<input type="hidden" name="id" id="id" value=""/>-->
+        <label for="">Date de réservation: </label>
+        <input type="date" name="date" id="date" value="" required/>
+        <label for="">à: </label>
+        <input type="time" name="heure" id="heure" value="" required/><br>
+        <label for="">Nombre de couverts: </label>
+        <input type="number" name="couverts" id="couverts" value="" max="12" min="1" required/>
+    </fieldset>
+        
+    <div class="bouton">
+    <button type="submit" class="submit" id="bouton">Réserver</button>
+    <button type="reset" class="submit"><a href="admin2.php">Annuler</a></button>
+    </div>
+</form>
+<!--<script type="module" src="views/js/script.js"></script>-->

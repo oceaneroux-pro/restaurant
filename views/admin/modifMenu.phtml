@@ -1,0 +1,48 @@
+<?php if(array_key_exists('id',$_GET)) : ?>
+
+  <form action="index.php?action=modifMenu" method="POST" enctype="multipart/form-data">
+    
+    <label for="nom_produit">Nom :</label>
+    <input type="text" id="nom_produit" name="titre" value="<?=$chosenMenu['titre'] ?>" required><br><br>
+    <input type="hidden" name="id" value="<?=$chosenMenu['id_produit'] ?>"/>
+  
+    <label for="description_produit">Description :</label>
+    <textarea id="description_produit" name="details" rows="4" cols="50" value="" required><?=$chosenMenu['details'] ?></textarea><br><br>
+  
+    <label for="photo_produit">Photo :</label>
+    
+    <input type="file" id="photo_produit" name="image" accept="image/*" value="<?=$chosenMenu['image'] ?>"required><br><br>
+  
+    <label for="prix_produit">Prix :</label>
+    <input type="number" id="prix_produit" name="prix_unite" min="0" step="1" value="<?=$chosenMenu['prix_unité'] ?>"required><br><br>
+  
+    <input type="submit" value="Ajouter le produit">
+    
+  </form>
+<?php else: ?>
+<table class="standard-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Photo</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($meals as $meal): ?>
+                <tr>
+                    <td><?= $meal['titre'] ?></td>
+                    <td><?= $meal['details'] ?></td>
+                    <td><?= $meal['prix_unité'] ?></td>
+                    <td><img src="views/images/meals/<?= $meal['image'] ?>" style="width: 200px"></img></td>
+                    <td><a href="index.php?action=modifMenu&id=<?= $meal['id_produit'] ?>">modifier</a></td>
+                    <td><a href="index.php?action=deleteMenu&id=<?= $meal['id_produit'] ?>">supprimer</a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+</table>
+
+<?php endif ?>

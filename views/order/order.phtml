@@ -1,0 +1,51 @@
+
+<h3>Passer une commande</h3>
+
+<form action="" method="post">
+    <fieldset class="commander">
+        <legend>Ajouter un article</legend>
+        
+        <label for="">Nom</label>
+        <select name="nom" id="selecteur">
+            <option value="">--Veuillez choisir une option--</option>
+            <?php foreach($meals as $meal) : ?>
+                <option value="<?= $meal['id_produit']?>"><?= $meal['titre']?></option>
+            <?php endforeach; ?> 
+        </select><br>
+        
+        
+        <div id="affichage">
+            
+        </div>
+        
+        <label for="">Quantité</label>
+        <input type="number" name="quantity" id="quantity" value="" max="10" min="1"/><br>
+    </fieldset>   
+        
+    <fieldset class="panier">
+        <legend>Récapitulatif de la commande</legend>
+        
+        <div id="target">
+            
+        </div>
+    </fieldset>
+        
+    <div class="bouton">
+    <button type="submit" class="submit" id="bouton">Ajouter au panier</button>
+    <button type="submit" class="submit" id="commander">Commander</a></button>
+    </div>
+</form>
+<script type="module" src="views/js/valid_action_commande.js"></script>
+
+
+<!--<table>-->
+<!--    <thead>-->
+<!--        <td>Quantité</td>-->
+<!--        <td>Produit</td>-->
+<!--        <td>Prix à l'unité</td>-->
+<!--        <td>Prix total</td>-->
+<!--    </thead>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--</table>-->

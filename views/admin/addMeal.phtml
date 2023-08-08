@@ -1,0 +1,21 @@
+<form action="index.php?action=addMenu" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Caractéristiques</legend>
+        <label for="">Nom *</label>
+        <input type="text" name="titre" id="titre" value="" required/><br>
+        <label for="">Description *</label>
+        <input type="text" name="details" id="details" value="" required/><br>
+        <label for="">Photo * </label>
+        <input type="file" name="image" accept="image/*"/>
+    </fieldset>
+    <fieldset>
+        <legend>Approvisionnement</legend>
+        <label for="prix">Prix de vente*</label>
+        <input type="number" name="prix_unité" id="prix" value=""  min="0" step="1" required/>
+    </fieldset>
+        
+    <div class="bouton">
+    <button type="submit" class="submit" id="bouton">Ajouter</button>
+    <button type="reset" class="submit">Annuler</a></button>
+    </div>
+</form>

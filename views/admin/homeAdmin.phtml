@@ -1,0 +1,32 @@
+<?php if($this -> isAdmin()) : ?>
+<h3>Tableau de bord</h3>
+<ul class="link-list">
+    <li>
+        <a class="button button-primary" href="index.php?action=addMenu">Ajouter un menu</a>
+    </li>
+    <li>
+        <a class="button button-primary" href="index.php?action=modifMenu">Modifier un menu</a>
+    </li>
+    <li>
+        <a class="button button-primary" href="index.php?action=bookingListe">Afficher les réservations</a>
+    </li>
+    <li>
+        <a class="button button-primary" href="index.php?action=listOrders">Afficher les commandes</a>
+</ul>
+<?php else: ?> 
+<h3>Se connecter avec un compte administrateur</h3>
+<form action="index.php?action=admin" method="post">
+    <fieldset>
+        <legend>Informations d'authentification</legend>
+        <label for="">E-mail *</label>
+        <input type="email" name="mail" id="mail" value="" required/><br>
+        <label for="">Mot de passe *</label>
+        <input type="password" name="mdp" id="mdp" value="" required/>
+    </fieldset>
+        
+    <div class="bouton">
+    <button type="submit" class="submit" id="bouton">Se connecter</button>
+    <button type="reset" class="submit">Annuler</a></button>
+    </div>
+</form>
+<?php endif; ?>
